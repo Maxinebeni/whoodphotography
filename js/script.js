@@ -166,73 +166,80 @@
     });
   }
 
-//Overlay Menu Navigation
-var overlayMenu = function () {
-
-  if (!$('.nav-overlay').length) {
-    return false;
-  }
-
-  var body = undefined;
-  var menu = undefined;
-  var menuItems = undefined;
-  var init = function init() {
-    body = document.querySelector('body');
-    menu = document.querySelector('.menu-btn');
-    menuItems = document.querySelectorAll('.nav__list-item a'); // Select the anchor links
-    var portfolioButton = document.querySelector('.btn-wrap a'); // Select the "View my portfolio" button
-    applyListeners(portfolioButton);
-  };
-
-  // Add event listeners
-  var applyListeners = function applyListeners(portfolioButton) {
-    menu.addEventListener('click', function () {
-      toggleClass(body, 'nav-active'); // Open/close menu
-    });
-
-    // Close menu and scroll to the section on click for nav items
-    menuItems.forEach(function (menuItem) {
-      menuItem.addEventListener('click', function (e) {
+  var overlayMenu = function () {
+    if (!$('.nav-overlay').length) {
+      return false;
+    }
+  
+    var body = undefined;
+    var menu = undefined;
+    var menuItems = undefined;
+  
+    var init = function init() {
+      body = document.querySelector('body');
+      menu = document.querySelector('.menu-btn');
+      menuItems = document.querySelectorAll('.nav__list-item a'); // Select the anchor links
+      var portfolioButton = document.querySelector('.btn-wrap a'); // Select the "View my portfolio" button
+      applyListeners(portfolioButton);
+    };
+  
+    // Add event listeners
+    var applyListeners = function applyListeners(portfolioButton) {
+      menu.addEventListener('click', function () {
+        toggleClass(body, 'nav-active'); // Open/close menu
+      });
+  
+      // Close menu and handle clicks on nav items
+      menuItems.forEach(function (menuItem) {
+        menuItem.addEventListener('click', function (e) {
+          var targetID = this.getAttribute('href'); // Get target section or page URL
+  
+          // If it's an anchor link (starts with '#'), scroll to the section
+          if (targetID.startsWith('#')) {
+            e.preventDefault(); // Prevent default jump
+            var targetSection = document.querySelector(targetID); // Get the section element
+  
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          } else {
+            // For other pages, just navigate to the link
+            window.location.href = targetID; // Navigate to another page
+          }
+  
+          // Close the overlay menu
+          body.classList.remove('nav-active');
+        });
+      });
+  
+      // Close menu and scroll to portfolio section on button click
+      portfolioButton.addEventListener('click', function (e) {
         e.preventDefault(); // Prevent default jump
-
         var targetID = this.getAttribute('href'); // Get target section ID
         var targetSection = document.querySelector(targetID); // Get the section element
-
+  
         // Scroll smoothly to the section
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+  
         // Close the overlay menu
         body.classList.remove('nav-active');
       });
-    });
-
-    // Close menu and scroll to portfolio section on button click
-    portfolioButton.addEventListener('click', function (e) {
-      e.preventDefault(); // Prevent default jump
-
-      var targetID = this.getAttribute('href'); // Get target section ID
-      var targetSection = document.querySelector(targetID); // Get the section element
-
-      // Scroll smoothly to the section
-      targetSection.scrollIntoView({ behavior: 'smooth' });
-
-      // Close the overlay menu
-      body.classList.remove('nav-active');
-    });
+    };
+  
+    // Toggle the class to open/close the overlay menu
+    var toggleClass = function toggleClass(element, stringClass) {
+      if (element.classList.contains(stringClass)) {
+        element.classList.remove(stringClass);
+      } else {
+        element.classList.add(stringClass);
+      }
+    };
+  
+    init();
   };
-
-  // Toggle the class to open/close the overlay menu
-  var toggleClass = function toggleClass(element, stringClass) {
-    if (element.classList.contains(stringClass)) {
-      element.classList.remove(stringClass);
-    } else {
-      element.classList.add(stringClass);
-    }
-  };
-
-  init();
-};
-
+  
   // init Chocolat light box
   var initChocolat = function() {
     Chocolat(document.querySelectorAll('.image-link'), {
@@ -258,19 +265,18 @@ var overlayMenu = function () {
 
   }); // End of document ready
 
-  var myVar;
+        var myVar;
 
-  function myFunction() {
-          myVar = setTimeout(showPage, 3000);
-      }
+        function myFunction() {
+            myVar = setTimeout(showPage, 3000);
+        }
 
-  function showPage() {
-  document.getElementsByClassName("preloader")[0].style.display = "none";
-  document.getElementById("myDiv").style.display = "block";
-  window.location.href = "index.html"; // Redirect to a new URL
+        function showPage() {
+            document.getElementsByClassName("preloader")[0].style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+            window.location.href = "index.html"; // Redirect to a new URL
+        }
 
-  window.onload = myFunction;
-
-      }    
+        window.onload = myFunction; // Call the function when the window loads
 
 })(jQuery);
