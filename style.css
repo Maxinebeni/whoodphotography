@@ -2517,6 +2517,11 @@ body.nav-active .nav__block .nav__block-item {
 #about figure {
   margin-right: 50px;
 }
+.about-section {
+  padding-left: 15px;  /* Adjust the padding as needed */
+  padding-right: 15px; /* Adjust the padding as needed */
+}
+
 
 #about img.single-image {
   width: 100%;
