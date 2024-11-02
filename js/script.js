@@ -82,29 +82,30 @@
   }
 
   // initialize all the sliders
-  var initSlider = function() {
-    // homepage slider | slick slider
-    $('.main-slider').slick({
-        autoplay: false,
-        autoplaySpeed: 4000,
-        fade: true,
-        prevArrow: $('.prev'),
-        nextArrow: $('.next'),
-    });
+// initialize all the sliders
+var initSlider = function() {
+  // homepage slider | slick slider
+  $('.main-slider').slick({
+      autoplay: true, // Enable autoplay
+      autoplaySpeed: 2000, // Set the speed to 3000ms (3 seconds)
+      fade: true,
+      prevArrow: $('.prev'),
+      nextArrow: $('.next'),
+  });
 
-    $('.main-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+  $('.main-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
       hideTexts();
       console.log('beforeChange');
-    });
+  });
 
-    $('.main-slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+  $('.main-slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
       animateTexts();
       console.log('afterChange');
-    });
-    
-    initTexts();
-    animateTexts();
-  }
+  });
+  
+  initTexts();
+  animateTexts();
+}
 
   // animate search box
   var searchButton = function() {
