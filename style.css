@@ -499,6 +499,36 @@ z-index:99;
   text-align: center;
 }/* form control */
 
+/* CSS */
+@media (max-width: 768px) {
+  .portfolio-item {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .portfolio-image {
+    width: 100%;
+    display: block;
+    position: relative;
+  }
+
+  .photo-description {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+  }
+
+  .btn-rounded {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+}
+
 
 .form-control:focus {
   border-color: #ccc;
