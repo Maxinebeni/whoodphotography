@@ -49,13 +49,13 @@
                 <div class="row p-4 p-md-0 flex-column-reverse flex-md-row g-md-5 nav__block">
                     <div class="col-md-5">
                         <ul class="nav__list">
-                            <li class="nav__list-item active-nav"><a href="index.html" class="hover-target">Home</a></li>
-                            <li class="nav__list-item"><a href="street.html" class="hover-target">Street</a></li>
-                            <li class="nav__list-item"><a href="potrait.html" class="hover-target">Portrait</a></li>
-                            <li class="nav__list-item"><a href="landscape.html" class="hover-target">Landscape</a></li>
-                            <li class="nav__list-item"><a href="events.html" class="hover-target">Events</a></li>
-                            <li class="nav__list-item"><a href="videos.html" class="hover-target">Videos</a></li>
-                        </ul>
+							<li class="nav__list-item"><a href="index.html" class="hover-target">Home</a></li>
+							<li class="nav__list-item"><a href="street.html" class="hover-target">Street</a></li>
+							<li class="nav__list-item"><a href="portrait.html" class="hover-target">Portrait</a></li>
+							<li class="nav__list-item"><a href="landscape.html" class="hover-target">Landscape</a></li>
+							<li class="nav__list-item"><a href="events.html" class="hover-target">Events</a></li>
+							<li class="nav__list-item"><a href="videos.html" class="hover-target">Videos</a></li>
+							</ul>
                     </div>
                 </div>
             </div>
@@ -199,6 +199,23 @@
 	<script src="js/plugins.js"></script>
 	<script src="js/script.js"></script>
 
+	<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the current page name from the URL
+    let page = window.location.pathname.split("/").pop();
+
+    // Select all navigation links
+    let navLinks = document.querySelectorAll('.nav__list-item a');
+
+    navLinks.forEach(link => {
+        // Check if link href matches the page name
+        if (link.getAttribute('href') === page) {
+            link.classList.add('active-link'); // Apply the active class
+        }
+    });
+});
+	
+</script>
 
 
 </body>

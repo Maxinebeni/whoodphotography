@@ -291,6 +291,19 @@ h6.light,
   margin: 0;
 }
 
+/* Base padding for smaller screens */
+.custom-padding {
+  padding-top: 30px;
+}
+
+/* Larger screens */
+@media (min-width: 992px) {
+  .custom-padding {
+      padding-top: 130px;
+  }
+}
+
+
 .preloader {
   position: fixed;
   top: 0;
