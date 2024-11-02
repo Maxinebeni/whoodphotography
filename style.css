@@ -124,7 +124,7 @@ body {
   --bs-body-font-size: 18px;
   --bs-body-font-weight: 300;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #757575;
+  --bs-body-color: #000;
   --bs-body-color-rgb: 117, 117, 117;
 
   --bs-primary: #D1B55B;
@@ -919,7 +919,6 @@ html {
 }
 
 .text-lead {
-  font-size: 120%;
   line-height: 1.7em;
 }
 
