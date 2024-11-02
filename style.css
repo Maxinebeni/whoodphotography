@@ -498,6 +498,14 @@ z-index:99;
 .myDiv {
   text-align: center;
 }/* form control */
+@media (max-width: 768px) {
+  #about .description {
+      padding-top: 20px; /* Reduce the top padding */
+  }
+  #about figure {
+      margin-bottom: 10px; /* Add a smaller margin to reduce space */
+  }
+}
 
 /* CSS */
 @media (max-width: 768px) {
