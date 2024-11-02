@@ -500,10 +500,10 @@ z-index:99;
 }/* form control */
 @media (max-width: 768px) {
   #about .description {
-      padding-top: 20px; /* Reduce the top padding */
+      padding-top: 2px; /* Reduce the top padding */
   }
   #about figure {
-      margin-bottom: 10px; /* Add a smaller margin to reduce space */
+      margin-bottom: 0px; /* Add a smaller margin to reduce space */
   }
 }
 
